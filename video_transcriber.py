@@ -36,7 +36,7 @@ class VideoTranscriber:
                 raise ValueError("HUGGINGFACE_TOKEN не задан в .env")
             self.diarization_pipeline = Pipeline.from_pretrained(
                 "pyannote/speaker-diarization-3.1",
-                use_auth_token=hf_token
+                token=hf_token
             )
         except Exception as e:
             self.log(f"Ошибка загрузки модели диаризации: {e}")
